@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Mon Site Ultra-Stylé</title>
+    <style>
+        /* Styles ultra-stylés, identiques aux autres pages */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        nav {
+            background: rgba(0,0,0,0.8);
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 20px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        nav a:hover {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-bottom: 3px solid #fff;
+            transform: scale(1.05);
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            animation: slideUp 1s ease-out;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            background: rgba(255,255,255,0.3);
+            outline: none;
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+        .contact-form button {
+            padding: 15px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .contact-form button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .contact-info {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .contact-info h3 {
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            margin: 10px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            backdrop-filter: blur(10px);
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation identique -->
+    <nav>
+        <a href="../index.html">Accueil</a>
+        <a href="videos.html">Vidéos</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h1 style="text-align: center; font-size: 2.5em; margin-bottom: 40px;">Contactez-moi</h1>
+        
+        <form class="contact-form" action="#" method="post"> <!-- Remplace # par une vraie action si tu as un backend -->
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+            
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="votre.email@example.com" required>
+            
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+            
+            <button type="submit">Envoyer</button>
+        </form>
+        
+        <section class="contact-info">
+            <h3>Autres moyens de me contacter</h3>
+            <p>Email : ton.email@example.com</p>
+            <p>Téléphone : +33 1 23 45 67 89</p>
+            <p>Réseaux sociaux : @tonpseudo</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Mon Site Ultra-Stylé. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

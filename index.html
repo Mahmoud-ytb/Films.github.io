@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Ultra-Stylé</title>
+    <style>
+        /* Styles ultra-stylés avec gradients, animations et effets */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            padding: 50px 20px;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        nav {
+            background: rgba(0,0,0,0.8);
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 20px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        nav a:hover {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-bottom: 3px solid #fff;
+            transform: scale(1.05);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            animation: slideUp 1s ease-out;
+        }
+        .welcome {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .welcome h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            backdrop-filter: blur(10px);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation avec liens vers d'autres pages -->
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="pages/videos.html">Vidéos</a>
+        <a href="pages/a-propos.html">À propos</a>
+        <a href="pages/contact.html">Contact</a>
+    </nav>
+
+    <!-- Section d'accueil stylée -->
+    <header>
+        <h1>Bienvenue sur Mon Site Ultra-Stylé !</h1>
+        <p>Explore nos catégories et découvre un monde de contenu incroyable.</p>
+    </header>
+
+    <div class="container">
+        <section class="welcome">
+            <h2>Accueil</h2>
+            <p>Ceci est la page d'accueil. Ajoute ici du texte, des images ou des éléments pour accueillir tes visiteurs. Le design est maintenant super stylé avec des gradients et des animations !</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Mon Site Ultra-Stylé. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

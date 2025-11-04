@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Vidéos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        #videos-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .video-item {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .video-item iframe, .video-item video {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        #add-video-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #add-video-btn:hover {
+            transform: scale(1.05);
+        }
+        #video-file-input {
+            display: none; /* Caché, déclenché par le bouton */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mes Vidéos</h1>
+        <p style="text-align: center;">Regarde tes vidéos préférées directement ici ! Elles sont chargées depuis le fichier <code>videos-data.txt</code>.</p>
+        
+        <!-- Bouton et sélecteur de fichiers -->
+        <input type="file" id="video-file-input" accept="video/*">
+        <button id="add-video-btn">Importer une Vidéo Locale</button>
+        
+        <div id="videos-list">
+            <!-- Les vidéos YouTube chargées dynamiquement seront ajoutées ici -->
+        </div>
+    </div>
+
+    <script>
+        // Charger les vidéos depuis videos-data.txt (URLs YouTube)
+        fetch('videos-data.txt')
+            .then(response => response.text())
+            .then(data => {
+                const links = data.split('\n').filter(link => link.trim());
+                const videosList = document.getElementById('videos-list');
+                links.forEach(link => {
+                    const videoItem = document.createElement('div');
+                    videoItem.className = 'video-item';
+                    videoItem.innerHTML = `<iframe src="${link.trim()}" frameborder="0" allowfullscreen></iframe>`;
+                    videosList.appendChild(videoItem);
+                });
+            })
+            .catch(error => console.error('Erreur lors du chargement des vidéos:', error));
+
+        // Gestion de l'importation de vidéo locale
+        const addBtn = document.getElementById('add-video-btn');
+        const fileInput = document.getElementById('video-file-input');
+        const videosList = document.getElementById('videos-list');
+
+        addBtn.addEventListener('click', () => {
+            fileInput.click(); // Ouvre le sélecteur de fichiers
+        });
+
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file && file.type.startsWith('video/')) {
+                const videoItem = document.createElement('div');
+                videoItem.className = 'video-item';
+                const videoElement = document.createElement('video');
+                videoElement.src = URL.createObjectURL(file); // Crée une URL temporaire pour le fichier
+                videoElement.controls = true; // Ajoute les contrôles de lecture
+                videoElement.style.width = '100%';
+                videoElement.style.height = 'auto';
+                videoItem.appendChild(videoElement);
+                videosList.appendChild(videoItem);
+                alert('Vidéo importée et ajoutée à la liste !');
+            } else {
+                alert('Veuillez sélectionner un fichier vidéo valide (ex: .mp4, .avi).');
+            }
+        });
+    </script>
+</body>
+</html>
